@@ -9,7 +9,7 @@ url = "https://raw.githubusercontent.com/Crismtc/binance-p2p/main/data/p2p_bob_u
 st.set_page_config(page_title="Binance P2P — BOB → USDT", layout="wide")
 st.title("💵 Binance P2P — BOB → USDT (Tendencia de mercado)")
 
-----------
+#----------
 try:
         df = pd.read_csv(CSV_URL)
 
