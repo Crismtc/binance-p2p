@@ -2,8 +2,8 @@ name: fetch-p2p
 
 on:
   schedule:
-    - cron: '0 * * * *'     # cada hora en minuto 0 (UTC) -> cambia si quieres otra frecuencia
-  workflow_dispatch:        # permite ejecutar manualmente desde GitHub Actions UI
+    - cron: '*/30 * * * *'  # cada 30 minutos (UTC)
+  workflow_dispatch:       # sigue permitiendo ejecución manual
 
 permissions:
   contents: write
