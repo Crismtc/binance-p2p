@@ -9,10 +9,30 @@ url = "https://raw.githubusercontent.com/Crismtc/binance-p2p/main/data/p2p_bob_u
 st.set_page_config(page_title="Binance P2P — BOB → USDT", layout="wide")
 st.title("💵 Binance P2P — BOB → USDT (Tendencia de mercado)")
 
-# === 1. Cargar CSV ===
+----------
 try:
-    df = pd.read_csv(url)
-    df["datetime_utc"] = pd.to_datetime(df["datetime_utc"])
+        df = pd.read_csv(CSV_URL)
+
+        # Asegurarse de que la columna timestamp sea datetime
+        df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce", utc=True)
+
+        # Convertir a hora de Bolivia (GMT-4)
+        df["timestamp"] = df["timestamp"].dt.tz_convert("America/La_Paz")
+
+        # Separar fecha y hora
+        #df["fecha"] = df["timestamp"].dt.date
+       # df["hora"] = df["timestamp"].dt.strftime("%H:%M:%S")
+
+        return df
+  #  except Exception as e:
+   #     st.error(f"Error cargando CSV: {e}")
+    #    return pd.DataFrame()
+
+
+# === 1. Cargar CSV ===
+#try:
+ #   df = pd.read_csv(url)  
+ #   df["datetime_utc"] = pd.to_datetime(df["datetime_utc"])
 except Exception as e:
     st.error(f"Error cargando CSV: {e}")
     st.stop()
