@@ -23,7 +23,7 @@ try:
         #df["fecha"] = df["timestamp"].dt.date
        # df["hora"] = df["timestamp"].dt.strftime("%H:%M:%S")
 
-        return df
+  #      return df
   #  except Exception as e:
    #     st.error(f"Error cargando CSV: {e}")
     #    return pd.DataFrame()
