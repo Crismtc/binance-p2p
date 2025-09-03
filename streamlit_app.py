@@ -67,4 +67,11 @@ if not df_last7.empty:
     else:
         st.info(f"ℹ️ El valor actual ({last_value:.3f}) está por encima del promedio de 7 días ({avg_last7:.3f}).")
 
+# === 7. Mostrar tabla de registros ===
+st.subheader("📊 Registros históricos")
+st.dataframe(
+    df.sort_values("datetime_utc", ascending=False),
+    use_container_width=True
+)
+
 st.caption("Datos obtenidos de Binance P2P vía GitHub Actions (auto-actualizados cada 30 min).")
